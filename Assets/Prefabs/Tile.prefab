@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 2444499789604972453}
   - component: {fileID: 5459663449971200895}
   m_Layer: 0
-  m_Name: Cube
+  m_Name: Tile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -110,3 +110,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d0d3648c12839ae4890090fd5ad1f200, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  coordinates: {x: 0, y: 0}
+  isTaken: 0
