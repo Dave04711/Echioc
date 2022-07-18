@@ -9,8 +9,11 @@ public class ViewManager : MonoBehaviour
     [SerializeField] GameObject camTop;
     [Space]
     [SerializeField] Transform rotatePoint;
+    [SerializeField] Transform rotateReference;
     [SerializeField] float angle = 45;
+    [SerializeField] float rotateTime = .5f;
     [SerializeField] GameObject rotateButton;
+    [SerializeField]bool rotate = false;
 
     public static Action SetIzoPerspective;
     public static Action SetTopPerspective;
@@ -19,6 +22,16 @@ public class ViewManager : MonoBehaviour
     {
         SetIzoPerspective = SetIzoView;
         SetTopPerspective = SetTopView;
+    }
+
+    private void Update()
+    {
+        if (Input.GetMouseButtonDown(1)) { SetIzoPerspective(); }
+        if (rotate)
+        {
+            rotatePoint.rotation = Quaternion.Slerp(rotatePoint.rotation, rotateReference.rotation, rotateTime * Time.deltaTime);
+            rotate = rotatePoint.rotation != rotateReference.rotation;
+        }
     }
 
     void SetIzoView()
@@ -43,10 +56,9 @@ public class ViewManager : MonoBehaviour
         cTop.position = new Vector3(curTile.position.x, cTop.position.y, curTile.position.z);
     }
 
-    public void RotateIzoView() { rotatePoint.Rotate(Vector3.up * angle); }
-
-    private void Update()
+    public void RotateIzoView()
     {
-        if (Input.GetMouseButtonDown(1)) { SetIzoPerspective(); }
+        rotateReference.Rotate(Vector3.up * angle);
+        rotate = true;
     }
 }
