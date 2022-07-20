@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 6494507169199589963}
   - component: {fileID: 7651709095800115426}
   - component: {fileID: 2560650665708102546}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Top
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -94,7 +94,7 @@ GameObject:
   - component: {fileID: 4091175484120090726}
   - component: {fileID: 7911255204309920845}
   - component: {fileID: 580753243387825975}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Mid
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -177,7 +177,7 @@ GameObject:
   - component: {fileID: 862793959136260974}
   - component: {fileID: 3117180317807143819}
   - component: {fileID: 8847387481449404266}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Bottom
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -258,8 +258,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4499335717295220165}
-  m_Layer: 0
-  m_Name: Cathedral
+  - component: {fileID: -4261156429688144485}
+  m_Layer: 5
+  m_Name: Cathedral UI
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -283,3 +284,21 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &-4261156429688144485
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3835669762007613311}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4a77828ecf4371b4388ee59e6f97c825, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  posOffset: {x: 0, y: 0.1, z: -0.5}
+  rotOffset: {x: -45, y: 180, z: 45}
+  newScale: {x: 0.2, y: 0.2, z: 0.2}
+  index: 0
+  moveDuration: 0.1
+  scaleStep: 0.75

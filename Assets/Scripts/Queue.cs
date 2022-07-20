@@ -9,32 +9,50 @@ public class Queue : MonoBehaviour
     [Space]
     [SerializeField] int queueLength = 5;
     [Space]
-    [SerializeField] Transform[] sockets;
+    [SerializeField] RectTransform[] sockets;
+
 
     private void Start()
     {
-        for (int i = 0; i < queueLength; i++)
-        {
-            queue.Enqueue(RandomItem());
-        }
+        Init();
     }
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.D))
+        if (Input.GetKeyDown(KeyCode.U))
         {
-            foreach (var item in queue)
-            {
-                Debug.Log(item);
-            }
+            UpdateQueue();
         }
     }
 
-    GameObject RandomItem() { return list[Random.Range(0, list.Count)]; }
+    GameObject RandomItem() { return Instantiate(list[Random.Range(0, list.Count)]); }
 
-    GameObject NextItem()
+    void Init()
     {
-        queue.Enqueue(RandomItem());
-        return queue.Dequeue();
+        for (int i = 0; i < queueLength; i++)
+        {
+            var newItem = RandomItem();
+            newItem.GetComponent<UIQueueObject>().index = -1;
+            newItem.GetComponent<UIQueueObject>().SetPosition(sockets[queueLength - (i+1)].position);
+            queue.Enqueue(newItem);
+            foreach(var item in queue) { item.GetComponent<UIQueueObject>().index++; }
+        }
+    }
+
+    void UpdateQueue()
+    {
+        var oldItem = queue.Dequeue(); // 1
+        oldItem.GetComponent<UIQueueObject>()?.Translate(sockets[queueLength].position, true);//TODO: instantiating sockets
+        Destroy(oldItem, 1);
+        var newItem = RandomItem(); // 2
+        newItem.GetComponent<UIQueueObject>().index = -1;
+        newItem.GetComponent<UIQueueObject>().SetPosition(sockets[0].position);
+        queue.Enqueue(newItem);
+        foreach (var item in queue) { item.GetComponent<UIQueueObject>().index++; }
+        foreach (var item in queue)//3
+        {
+            var UIQO = item.GetComponent<UIQueueObject>();
+            UIQO.Translate(sockets[UIQO.index].position);
+        }
     }
 }
