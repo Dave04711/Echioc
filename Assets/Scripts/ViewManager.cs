@@ -39,6 +39,7 @@ public class ViewManager : MonoBehaviour
         camIzo.SetActive(true);
         camTop.SetActive(false);
         rotateButton.SetActive(true);
+        BuildingLogic.instance.SetGrapnelActive(false);
     }
 
     void SetTopView()
@@ -47,6 +48,7 @@ public class ViewManager : MonoBehaviour
         camIzo.SetActive(false);
         camTop.SetActive(true);
         rotateButton.SetActive(false);
+        BuildingLogic.instance.SetGrapnelActive(true);
     }
 
     void SetNewPos()

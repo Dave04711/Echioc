@@ -296,9 +296,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4a77828ecf4371b4388ee59e6f97c825, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  posOffset: {x: 0, y: 0.1, z: -0.5}
+  posOffset: {x: 0, y: 0.1, z: -1.5}
   rotOffset: {x: -45, y: 180, z: 45}
   newScale: {x: 0.2, y: 0.2, z: 0.2}
   index: 0
   moveDuration: 0.1
   scaleStep: 0.75
+  buildingPrefab: {fileID: 319817634396814407, guid: daaf025c7340ddb42b55b0aec329691d, type: 3}

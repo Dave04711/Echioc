@@ -112,3 +112,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   coordinates: {x: 0, y: 0}
   isTaken: 0
+  buildingType: 6

@@ -4,6 +4,15 @@ using UnityEngine;
 
 public class Queue : MonoBehaviour
 {
+    #region Singleton
+    public static Queue Instance;
+    private void Awake()
+    {
+        if (Instance == null) { Instance = this; }
+        else { Destroy(gameObject); }
+    } 
+    #endregion
+
     Queue<GameObject> queue = new Queue<GameObject>();
     [SerializeField] List<GameObject> list = new List<GameObject>();
     [Space]
@@ -15,14 +24,6 @@ public class Queue : MonoBehaviour
     private void Start()
     {
         Init();
-    }
-
-    private void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.U))
-        {
-            UpdateQueue();
-        }
     }
 
     GameObject RandomItem() { return Instantiate(list[Random.Range(0, list.Count)]); }
@@ -55,4 +56,6 @@ public class Queue : MonoBehaviour
             UIQO.Translate(sockets[UIQO.index].position);
         }
     }
+
+    public Building PeekQueue() { return queue.Peek().GetComponent<UIQueueObject>().buildingPrefab.GetComponent<Building>(); }
 }
