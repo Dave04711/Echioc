@@ -9,6 +9,12 @@ public class Grapnel : MonoBehaviour
     Transform target;
     [SerializeField] Transform tip;
     [SerializeField] float speed = 1;
+    public static Transform Tip;
+
+    private void Start()
+    {
+        Tip = tip;
+    }
 
     public void Init()
     {

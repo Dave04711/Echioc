@@ -9,5 +9,7 @@ public class Building : MonoBehaviour
     public GameObject bottom;
     [Space]
     public BuildingType buildingType;
+
+    public float midHeight = .5f;
 }
 public enum BuildingType { A, B, C, D, E, F }
