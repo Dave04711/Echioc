@@ -11,6 +11,7 @@ public class Tile : MonoBehaviour
 
     private void OnMouseDown()
     {
+        if (LogicReference.IsBuilding() || isTaken) { return; }
         Map.SetCurrentTile(this);
         ViewManager.SetTopPerspective();
         SetBuildingType();
@@ -30,4 +31,16 @@ public class Tile : MonoBehaviour
     }
 
     public Transform GetLastStorey() { return storeys[storeys.Count - 1].transform; }
+
+    public void FinishBuilding()
+    {
+        for (int i = 0; i < storeys.Count; i++)
+        {
+            Rigidbody rigidbody = storeys[i].GetComponent<Rigidbody>();
+            if(rigidbody != null) { rigidbody.isKinematic = true; }
+
+            Collider collider = storeys[i].GetComponent<Collider>();
+            if(collider != null) { collider.enabled = false; }
+        }
+    }
 }

@@ -18,15 +18,20 @@ public class ViewManager : MonoBehaviour
     public static Action SetIzoPerspective;
     public static Action SetTopPerspective;
 
+    public static bool IsBuildingInProgress;
+
+    public static GameObject cameraIzo;
+
     private void Start()
     {
         SetIzoPerspective = SetIzoView;
         SetTopPerspective = SetTopView;
+
+        cameraIzo = camIzo;
     }
 
     private void Update()
     {
-        if (Input.GetMouseButtonDown(1)) { SetIzoPerspective(); }
         if (rotate)
         {
             rotatePoint.rotation = Quaternion.Slerp(rotatePoint.rotation, rotateReference.rotation, rotateTime * Time.deltaTime);
@@ -40,6 +45,8 @@ public class ViewManager : MonoBehaviour
         camTop.SetActive(false);
         rotateButton.SetActive(true);
         BuildingLogic.instance.SetGrapnelActive(false);
+        StartCoroutine(SetBuildingRefBool(false));
+        LogicReference.OnChange2IzoView_Callback();
     }
 
     void SetTopView()
@@ -49,6 +56,8 @@ public class ViewManager : MonoBehaviour
         camTop.SetActive(true);
         rotateButton.SetActive(false);
         BuildingLogic.instance.SetGrapnelActive(true);
+        StartCoroutine(SetBuildingRefBool(true));
+        LogicReference.OnChange2TopView_Callback();
     }
 
     void SetNewPos()
@@ -62,5 +71,11 @@ public class ViewManager : MonoBehaviour
     {
         rotateReference.Rotate(Vector3.up * angle);
         rotate = true;
+    }
+
+    IEnumerator SetBuildingRefBool(bool _p)
+    {
+        yield return null; // has to wait 1 frame
+        IsBuildingInProgress = _p;
     }
 }
