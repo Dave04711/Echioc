@@ -8,6 +8,8 @@ public class Tile : MonoBehaviour
     public bool isTaken = false;
     public BuildingType buildingType;
     [SerializeField] List<GameObject> storeys = new List<GameObject>();
+    [SerializeField] GameObject ruinsPrefab;
+    [SerializeField] float height = .25f;
 
     private void OnMouseDown()
     {
@@ -31,6 +33,7 @@ public class Tile : MonoBehaviour
     }
 
     public Transform GetLastStorey() { return storeys[storeys.Count - 1].transform; }
+    public int GetStoreysAmount() { return storeys.Count; }
 
     public void FinishBuilding()
     {
@@ -42,5 +45,40 @@ public class Tile : MonoBehaviour
             Collider collider = storeys[i].GetComponent<Collider>();
             if(collider != null) { collider.enabled = false; }
         }
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        GenerateRuins();
+    }
+
+    void GenerateRuins()
+    {
+        //sprawdz odleglosc do currentTile ( coordinates ) ?
+        //jezeli ok ( odleglosc ) to generuj ruine, zapisz obecna runde
+        //dodaj delegate do zmiany rundy oraz nabicia combosa
+        //jezeli odleglosc jest za duza to zwroc nic
+        //jezeli na obecnej kratce jest ruina zresetuj licznik lub dodaj ilosc rund do clear'a
+        //wywolaj akcje OnCollapse
+        //zawal currentTile
+        //przerwij tryb budowy
+
+        if (CalculateDistance() <= BuildingLogic.instance.GetMaxRuinsDistance())
+        {
+            SpawnRuin(this);
+            SpawnRuin(Map.currentTile);
+        }
+    }
+
+    void SpawnRuin(Tile _tile)
+    {
+        _tile.isTaken = true;
+        var ruins = Instantiate(ruinsPrefab, _tile.transform);
+        ruins.transform.position += Vector3.up * height;
+    }
+
+    int CalculateDistance()
+    {
+        return (int)Vector2.Distance(coordinates, Map.currentTile.coordinates);
     }
 }

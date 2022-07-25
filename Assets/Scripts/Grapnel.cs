@@ -27,6 +27,8 @@ public class Grapnel : MonoBehaviour
         target = currentRoute.pointB;
     }
 
+    public void SetSpeed(float _p) { speed = _p; }
+
     private void Update()
     {
         if (Vector3.Distance(tip.position, currentRoute.pointA.position) <= .02f) { target = currentRoute.pointB; }

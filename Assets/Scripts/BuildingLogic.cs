@@ -16,6 +16,12 @@ public class BuildingLogic : MonoBehaviour
     [SerializeField] Building building;
     [SerializeField] Transform grapnel;
     [SerializeField] float height = 1;
+    [SerializeField] float defTipSpeed = 1.25f;
+    [SerializeField] float tipSpeedGain = .1f;
+    [Header("Ruins")]
+    [SerializeField] int maxDistanceFromOrigin = 1;
+    [SerializeField] int rounds2ClearRuins = 5;
+    [SerializeField] int round = 0;
 
     private void Update()
     {
@@ -40,6 +46,7 @@ public class BuildingLogic : MonoBehaviour
         bottom.transform.localPosition = Vector3.up * .25f;
         Map.currentTile.AddStorey(bottom);
         Map.currentTile.isTaken = true;
+        grapnel.GetComponent<Grapnel>().SetSpeed(defTipSpeed);
     }
 
     void SpawnBuildingMid()
@@ -53,7 +60,9 @@ public class BuildingLogic : MonoBehaviour
             mid.transform.position = Grapnel.Tip.position;
 
             grapnel.position += Vector3.up * building.midHeight;
-            grapnel.GetComponent<Grapnel>().Init();
+            Grapnel _grapnel = grapnel.GetComponent<Grapnel>();
+            _grapnel.Init();
+            _grapnel.SetSpeed(defTipSpeed + (defTipSpeed * tipSpeedGain * Map.currentTile.GetStoreysAmount()));
 
             Map.currentTile.AddStorey(mid);
 
@@ -80,4 +89,6 @@ public class BuildingLogic : MonoBehaviour
     }
 
     public void SetGrapnelActive(bool _p) { grapnel.gameObject.SetActive(_p); }
+    public int GetMaxRuinsDistance() { return maxDistanceFromOrigin; }
+    public int GetMaxRuinsRounds() { return rounds2ClearRuins; }
 }

@@ -553,6 +553,10 @@ MonoBehaviour:
   building: {fileID: 0}
   grapnel: {fileID: 148729156}
   height: 1
+  defTipSpeed: 1.25
+  tipSpeedGain: 0.1
+  maxDistanceFromOrigin: 1
+  rounds2ClearRuins: 5
 --- !u!114 &153046490
 MonoBehaviour:
   m_ObjectHideFlags: 0
