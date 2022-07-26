@@ -72,7 +72,7 @@ public class BuildingLogic : MonoBehaviour
 
     void SpawnBuildingTop()
     {
-        if (LogicReference.IsBuilding())
+        if (LogicReference.IsBuilding() && Map.currentTile.GetStoreysAmount() > 1)
         {
             var top = Instantiate(building.top, Map.currentTile.transform);
 
@@ -84,11 +84,22 @@ public class BuildingLogic : MonoBehaviour
 
             ViewManager.SetIzoPerspective();
 
-            LogicReference.OnCompleteBuilding_Callback(); 
+            round++;
+
+            //LogicReference.OnCompleteBuilding_Callback(); 
         }
     }
 
     public void SetGrapnelActive(bool _p) { grapnel.gameObject.SetActive(_p); }
     public int GetMaxRuinsDistance() { return maxDistanceFromOrigin; }
     public int GetMaxRuinsRounds() { return rounds2ClearRuins; }
+
+    public int GetCurrentRound() { return round; }
+
+    public void AbortBuilding()
+    {
+        ViewManager.SetIzoPerspective();
+        LogicReference.OnCollapse_Callback();
+
+    }
 }

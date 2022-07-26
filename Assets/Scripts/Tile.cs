@@ -10,6 +10,14 @@ public class Tile : MonoBehaviour
     [SerializeField] List<GameObject> storeys = new List<GameObject>();
     [SerializeField] GameObject ruinsPrefab;
     [SerializeField] float height = .25f;
+    [SerializeField] float destroyInterval = .5f;
+    WaitForSeconds interval;
+    bool isDestroying;
+
+    private void Awake()
+    {
+        interval = new WaitForSeconds(destroyInterval);
+    }
 
     private void OnMouseDown()
     {
@@ -62,11 +70,13 @@ public class Tile : MonoBehaviour
         //wywolaj akcje OnCollapse
         //zawal currentTile
         //przerwij tryb budowy
+        //niszcz budowle
 
         if (CalculateDistance() <= BuildingLogic.instance.GetMaxRuinsDistance())
         {
             SpawnRuin(this);
             SpawnRuin(Map.currentTile);
+            Map.currentTile.DestroyBuilding();
         }
     }
 
@@ -80,5 +90,30 @@ public class Tile : MonoBehaviour
     int CalculateDistance()
     {
         return (int)Vector2.Distance(coordinates, Map.currentTile.coordinates);
+    }
+
+    public void DestroyBuilding() 
+    {
+        if(GetStoreysAmount() <= 0 || isDestroying) { return; }
+        StartCoroutine(DestroyAllStoreys());
+    }
+    
+    IEnumerator DestroyAllStoreys()
+    {
+        isDestroying = true;
+        GetLastStorey().GetComponent<Timer>()?.CancelCounting();
+        BuildingLogic.instance.AbortBuilding();
+        for (int i = 0; i < GetStoreysAmount(); i++)
+        {
+            yield return interval;
+            Destroy(storeys[i]);
+        }
+        storeys.Clear();
+        isDestroying = false;
+    }
+
+    void ClearTile()
+    {
+
     }
 }

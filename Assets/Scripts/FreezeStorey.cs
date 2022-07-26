@@ -22,6 +22,8 @@ public class FreezeStorey : MonoBehaviour
     void FinishCallback()
     {
         Map.currentTile.FinishBuilding();
+        LogicReference.OnCompleteBuilding_Callback();
+
         timer.finishCallback -= FinishCallback;
     }
 

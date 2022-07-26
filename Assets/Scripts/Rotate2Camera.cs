@@ -13,6 +13,7 @@ public class Rotate2Camera : MonoBehaviour
 
     private void LateUpdate()
     {
-        transform.LookAt(target.position);
+        //transform.LookAt(target.position);
+        transform.rotation = target.rotation;
     }
 }

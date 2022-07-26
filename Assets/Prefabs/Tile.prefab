@@ -116,3 +116,4 @@ MonoBehaviour:
   storeys: []
   ruinsPrefab: {fileID: 4640747219979319102, guid: c7e45658e2b20fa4c91093c4cb79099a, type: 3}
   height: 0.25
+  destroyInterval: 0.1

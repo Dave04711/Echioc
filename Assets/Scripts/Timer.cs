@@ -36,6 +36,11 @@ public class Timer : MonoBehaviour
         else { Debug.LogWarning("Timer " + name + " is already running!"); }
     }
 
+    public void CancelCounting()
+    {
+        isCounting = false;// 8P
+    }
+
     public float GetTimeLeft() { return timeRemaining; }
     public float GetCompletionPercent() { return timeRemaining / duration; }
 }
