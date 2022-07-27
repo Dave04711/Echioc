@@ -18,6 +18,7 @@ public class BuildingLogic : MonoBehaviour
     [SerializeField] float height = 1;
     [SerializeField] float defTipSpeed = 1.25f;
     [SerializeField] float tipSpeedGain = .1f;
+    [SerializeField] bool isReady2Build = true;
     [Header("Ruins")]
     [SerializeField] int maxDistanceFromOrigin = 1;
     [SerializeField] int rounds2ClearRuins = 5;
@@ -102,4 +103,11 @@ public class BuildingLogic : MonoBehaviour
         LogicReference.OnCollapse_Callback();
 
     }
+
+    public void SetReadiness(bool _p)
+    {
+        isReady2Build = _p;
+    }
+
+    public bool IsReady2Build() { return isReady2Build; }
 }

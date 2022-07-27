@@ -14,8 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_PixelRect:
     serializedVersion: 2
-    x: -500.66663
-    y: 335.3333
+    x: -616
+    y: -540
     width: 357.33334
     height: 643.3334
   m_ShowMode: 0
@@ -43,7 +43,7 @@ MonoBehaviour:
     width: 2560
     height: 1349.3334
   m_ShowMode: 4
-  m_Title: Hierarchy
+  m_Title: Project
   m_RootView: {fileID: 9}
   m_MinSize: {x: 875, y: 300}
   m_MaxSize: {x: 10000, y: 10000}
@@ -67,8 +67,8 @@ MonoBehaviour:
     y: 0
     width: 357.33334
     height: 643.3334
-  m_MinSize: {x: 100, y: 121}
-  m_MaxSize: {x: 4000, y: 4021}
+  m_MinSize: {x: 100, y: 100}
+  m_MaxSize: {x: 4000, y: 4000}
   m_ActualView: {fileID: 15}
   m_Panes:
   - {fileID: 15}
@@ -142,8 +142,8 @@ MonoBehaviour:
     y: 0
     width: 605.3334
     height: 1299.3334
-  m_MinSize: {x: 275, y: 50}
-  m_MaxSize: {x: 4000, y: 4000}
+  m_MinSize: {x: 276, y: 71}
+  m_MaxSize: {x: 4001, y: 4021}
   m_ActualView: {fileID: 17}
   m_Panes:
   - {fileID: 17}
@@ -168,8 +168,8 @@ MonoBehaviour:
     y: 0
     width: 484
     height: 769.3333
-  m_MinSize: {x: 200, y: 200}
-  m_MaxSize: {x: 4000, y: 4000}
+  m_MinSize: {x: 201, y: 221}
+  m_MaxSize: {x: 4001, y: 4021}
   m_ActualView: {fileID: 18}
   m_Panes:
   - {fileID: 18}
@@ -369,8 +369,8 @@ MonoBehaviour:
     m_Tooltip: 
   m_Pos:
     serializedVersion: 2
-    x: -500.66663
-    y: 335.3333
+    x: -616
+    y: -540
     width: 357.33334
     height: 622.3334
   m_ViewDataDictionary: {fileID: 0}
@@ -489,22 +489,22 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/Scripts
+    - Assets
     m_Globs: []
     m_OriginalText: 
   m_ViewMode: 1
   m_StartGridSize: 64
   m_LastFolders:
-  - Assets/Scripts
+  - Assets
   m_LastFoldersGridSize: -1
-  m_LastProjectPath: C:\Users\admin\Documents\Echioc
+  m_LastProjectPath: C:\Users\dave0\OneDrive\Documents\Echioc
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
     scrollPos: {x: 0, y: 0}
-    m_SelectedIDs: 806c0000
-    m_LastClickedID: 27776
-    m_ExpandedIDs: 00000000e46a00007a6c00008a6c00009082000000ca9a3b
+    m_SelectedIDs: 966c0000
+    m_LastClickedID: 27798
+    m_ExpandedIDs: 00000000966c0000a46c0000007b00006c7f000000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -532,7 +532,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 00000000e46a0000
+    m_ExpandedIDs: 00000000966c0000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -660,9 +660,9 @@ MonoBehaviour:
   m_SceneHierarchy:
     m_TreeViewState:
       scrollPos: {x: 0, y: 0}
-      m_SelectedIDs: 
+      m_SelectedIDs: b69600002e980000
       m_LastClickedID: 0
-      m_ExpandedIDs: 3a81e3ff14fbffffd8680000f868000052690000a4690000b4690000be690000
+      m_ExpandedIDs: eae5daff9abfdcfff651e4ffe667e4ffca13f0ff804dffff16fbffffd6680000f6680000
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -944,9 +944,9 @@ MonoBehaviour:
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: -11.539808, y: 1.2287829, z: 16.181189}
+    m_Target: {x: 1.161945, y: 0.6657176, z: -0.024808764}
     speed: 2
-    m_Value: {x: -11.539808, y: 1.2287829, z: 16.181189}
+    m_Value: {x: 1.161945, y: 0.6657176, z: -0.024808764}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -992,13 +992,13 @@ MonoBehaviour:
     m_GridAxis: 1
     m_gridOpacity: 0.5
   m_Rotation:
-    m_Target: {x: 0.013655576, y: 0.9738461, z: -0.060846284, w: 0.21858458}
+    m_Target: {x: -0.3011982, y: -0.19639593, z: 0.06354375, w: -0.93098617}
     speed: 2
-    m_Value: {x: 0.013655275, y: 0.9738246, z: -0.060844943, w: 0.21857977}
+    m_Value: {x: -0.3011885, y: -0.19638959, z: 0.063541695, w: -0.93095607}
   m_Size:
-    m_Target: 4.7130194
+    m_Target: 3.412859
     speed: 2
-    m_Value: 4.7130194
+    m_Value: 3.412859
   m_Ortho:
     m_Target: 1
     speed: 2

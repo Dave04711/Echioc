@@ -302,4 +302,4 @@ MonoBehaviour:
   index: 0
   moveDuration: 0.1
   scaleStep: 0.75
-  buildingPrefab: {fileID: 319817634396814407, guid: daaf025c7340ddb42b55b0aec329691d, type: 3}
+  buildingPrefab: {fileID: 319817634396814407, guid: 154b12eff8c3e324ca88f9d73852be73, type: 3}

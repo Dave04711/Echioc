@@ -40,7 +40,7 @@ public class Queue : MonoBehaviour
         }
     }
 
-    void UpdateQueue()
+    public void UpdateQueue()
     {
         var oldItem = queue.Dequeue(); // 1
         oldItem.GetComponent<UIQueueObject>()?.Translate(sockets[queueLength].position, true);//TODO: instantiating sockets

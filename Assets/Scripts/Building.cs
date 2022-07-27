@@ -12,4 +12,4 @@ public class Building : MonoBehaviour
 
     public float midHeight = .5f;
 }
-public enum BuildingType { A, B, C, D, E, F }
+public enum BuildingType { A, B, C, D, E, F, None }

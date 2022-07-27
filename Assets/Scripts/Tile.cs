@@ -13,6 +13,7 @@ public class Tile : MonoBehaviour
     [SerializeField] float destroyInterval = .5f;
     WaitForSeconds interval;
     bool isDestroying;
+    public bool inCombo;
 
     private void Awake()
     {
@@ -21,11 +22,13 @@ public class Tile : MonoBehaviour
 
     private void OnMouseDown()
     {
-        if (LogicReference.IsBuilding() || isTaken) { return; }
+        if (LogicReference.IsBuilding() || isTaken || !BuildingLogic.instance.IsReady2Build()) { return; }
         Map.SetCurrentTile(this);
         ViewManager.SetTopPerspective();
         SetBuildingType();
         BuildingLogic.instance.SetGrapnelPosition();
+        BuildingLogic.instance.SetReadiness(false);
+        Queue.Instance.UpdateQueue();
     }
 
     void SetBuildingType()
@@ -53,6 +56,7 @@ public class Tile : MonoBehaviour
             Collider collider = storeys[i].GetComponent<Collider>();
             if(collider != null) { collider.enabled = false; }
         }
+        BuildingLogic.instance.SetReadiness(true);
     }
 
     private void OnCollisionEnter(Collision collision)
@@ -77,6 +81,7 @@ public class Tile : MonoBehaviour
             SpawnRuin(this);
             SpawnRuin(Map.currentTile);
             Map.currentTile.DestroyBuilding();
+            BuildingLogic.instance.SetReadiness(true);
         }
     }
 

@@ -31,6 +31,7 @@ public class GenerateMap : MonoBehaviour
                 tiles.Add(tile);
             }
         }
+        Map.SetCurrentTiles(tiles);
     }
 
     private void OnDrawGizmos()
