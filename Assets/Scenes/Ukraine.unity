@@ -543,7 +543,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   list:
   - {fileID: 3835669762007613311, guid: 51615c8d3fcc2be4991e90c27dde5087, type: 3}
-  - {fileID: 3835669762007613311, guid: 89d41a0d24726f4468ac949682fb340c, type: 3}
+  - {fileID: 2573357790569370133, guid: dfef8e9657ca0ef4cac54c7772503d5d, type: 3}
   queueLength: 5
   sockets:
   - {fileID: 201851622}
@@ -832,9 +832,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 153046487}
-        m_TargetAssemblyTypeName: ViewManager, Assembly-CSharp
-        m_MethodName: RotateIzoView
+      - m_Target: {fileID: 153046489}
+        m_TargetAssemblyTypeName: BuildingLogic, Assembly-CSharp
+        m_MethodName: SpawnBuildingTop
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

@@ -114,6 +114,7 @@ MonoBehaviour:
   isTaken: 0
   buildingType: 6
   storeys: []
-  ruinsPrefab: {fileID: 4640747219979319102, guid: c7e45658e2b20fa4c91093c4cb79099a, type: 3}
+  ruinsPrefab: {fileID: 2604347369263221911, guid: 6358edab40143ca48b6dc828ffad00ac, type: 3}
   height: 0.25
   destroyInterval: 0.1
+  inCombo: 0

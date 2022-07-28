@@ -71,7 +71,7 @@ public class BuildingLogic : MonoBehaviour
         }
     }
 
-    void SpawnBuildingTop()
+    public void SpawnBuildingTop()
     {
         if (LogicReference.IsBuilding() && Map.currentTile.GetStoreysAmount() > 1)
         {

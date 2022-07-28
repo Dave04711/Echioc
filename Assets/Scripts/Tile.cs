@@ -14,10 +14,17 @@ public class Tile : MonoBehaviour
     WaitForSeconds interval;
     bool isDestroying;
     public bool inCombo;
+    public RuinsIndicator ruins;
+    bool canAdd = true;
 
     private void Awake()
     {
         interval = new WaitForSeconds(destroyInterval);
+    }
+
+    private void Start()
+    {
+        LogicReference.OnCompleteBuilding_Callback += ResetCanAdd;
     }
 
     private void OnMouseDown()
@@ -30,6 +37,8 @@ public class Tile : MonoBehaviour
         BuildingLogic.instance.SetReadiness(false);
         Queue.Instance.UpdateQueue();
     }
+
+    
 
     void SetBuildingType()
     {
@@ -61,8 +70,13 @@ public class Tile : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        GenerateRuins();
+        if (canAdd)
+        {
+            GenerateRuins(); 
+        }
     }
+
+    void ResetCanAdd() { canAdd = true; }
 
     void GenerateRuins()
     {
@@ -82,14 +96,26 @@ public class Tile : MonoBehaviour
             SpawnRuin(Map.currentTile);
             Map.currentTile.DestroyBuilding();
             BuildingLogic.instance.SetReadiness(true);
+            canAdd = false;
         }
     }
 
     void SpawnRuin(Tile _tile)
     {
-        _tile.isTaken = true;
-        var ruins = Instantiate(ruinsPrefab, _tile.transform);
-        ruins.transform.position += Vector3.up * height;
+        if(_tile.ruins != null)
+        {
+            _tile.DestroyBuilding();
+            _tile.ruins.AccumulateValues();
+        }
+        else
+        {
+            _tile.isTaken = true;
+            var _ruins = Instantiate(ruinsPrefab, _tile.transform);
+            //ruins.transform.position += Vector3.up * height;
+            _tile.ruins = _ruins.GetComponent<RuinsIndicator>();
+            _tile.ruins.tile = _tile;
+            buildingType = BuildingType.F;
+        }
     }
 
     int CalculateDistance()
@@ -114,11 +140,12 @@ public class Tile : MonoBehaviour
             Destroy(storeys[i]);
         }
         storeys.Clear();
+        buildingType = BuildingType.None;
         isDestroying = false;
     }
 
-    void ClearTile()
+    public void ClearTile()
     {
-
+        
     }
 }
