@@ -9,6 +9,7 @@ public class Building : MonoBehaviour
     public GameObject bottom;
     [Space]
     public BuildingType buildingType;
+    public int value = 100;
 
     public float midHeight = .5f;
 }

@@ -16,6 +16,7 @@ public class Tile : MonoBehaviour
     public bool inCombo;
     public RuinsIndicator ruins;
     bool canAdd = true;
+    int value = 0;
 
     private void Awake()
     {
@@ -45,6 +46,7 @@ public class Tile : MonoBehaviour
         var building = Queue.Instance.PeekQueue();
         buildingType = building.buildingType;
         BuildingLogic.instance.SetBuilding(building);
+        value = building.value;
     }
 
     public void AddStorey(GameObject _storey)
@@ -146,6 +148,12 @@ public class Tile : MonoBehaviour
 
     public void ClearTile()
     {
-        
+        DestroyBuilding();
+        isTaken = false;
+    }
+
+    public int GetValue()
+    {
+        return value;
     }
 }

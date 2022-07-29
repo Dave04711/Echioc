@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class BuildingLogic : MonoBehaviour
 {
@@ -23,6 +24,9 @@ public class BuildingLogic : MonoBehaviour
     [SerializeField] int maxDistanceFromOrigin = 1;
     [SerializeField] int rounds2ClearRuins = 5;
     [SerializeField] int round = 0;
+    [Header("Score")]
+    [SerializeField] TMP_Text scoreTxt;
+    [SerializeField] int score = 0;
 
     private void Update()
     {
@@ -31,6 +35,7 @@ public class BuildingLogic : MonoBehaviour
     }
 
     public void SetBuilding(Building _building) { building = _building; }
+    public int GetBuildingValue() { return building.value; }
 
     public void SetGrapnelPosition()
     {
@@ -110,4 +115,10 @@ public class BuildingLogic : MonoBehaviour
     }
 
     public bool IsReady2Build() { return isReady2Build; }
+
+    public void AddScore(int _value)
+    {
+        score += _value;
+        scoreTxt.text = score.ToString();
+    }
 }
