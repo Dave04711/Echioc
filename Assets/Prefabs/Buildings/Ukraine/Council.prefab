@@ -53,7 +53,7 @@ MonoBehaviour:
   index: 0
   moveDuration: 0.1
   scaleStep: 1
-  buildingPrefab: {fileID: 319817634396814407, guid: daaf025c7340ddb42b55b0aec329691d, type: 3}
+  buildingPrefab: {fileID: 8872175295509481747, guid: bbfdf18df220ce74584d124e992627c9, type: 3}
 --- !u!1 &3058197308585183486
 GameObject:
   m_ObjectHideFlags: 0

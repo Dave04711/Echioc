@@ -3,7 +3,12 @@ guid: 65a8957bffcc63844b7a3ba2e9db6523
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - top: {instanceID: 0}
+  - mid: {instanceID: 0}
+  - bottom: {instanceID: 0}
+  - barRef: {fileID: 1049664218467888940, guid: 7f1ed64913eec8a4181e214e75b0e704, type: 3}
+  - phyMatRef: {fileID: 13400000, guid: a8a17a367b8a2f24fb52de2d30977b82, type: 2}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

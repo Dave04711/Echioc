@@ -32,4 +32,9 @@ public class FreezeStorey : MonoBehaviour
         float time = timer.GetCompletionPercent();
         bar.SetFill(time);
     }
+
+    public void SetBar(Bar _bar)
+    {
+        bar = _bar;
+    }
 }

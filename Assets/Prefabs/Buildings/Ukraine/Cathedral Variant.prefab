@@ -221,6 +221,8 @@ MonoBehaviour:
   buildingType: 0
   value: 100
   midHeight: 0.5
+  barRef: {fileID: 0}
+  phyMatRef: {fileID: 0}
 --- !u!1 &2275416154479561160 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3375685200225471216, guid: 51615c8d3fcc2be4991e90c27dde5087, type: 3}

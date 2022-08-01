@@ -47,8 +47,8 @@ public class BuildingLogic : MonoBehaviour
     void SpawnBuildingBottom()
     {
         var bottom = Instantiate(building.bottom, Map.currentTile.transform);
-        bottom.transform.eulerAngles = Vector3.left * 90;
-        bottom.transform.localScale = Vector3.one * .4f;
+        //bottom.transform.eulerAngles = Vector3.left * 90;
+        //bottom.transform.localScale = Vector3.one * .4f;
         bottom.transform.localPosition = Vector3.up * .25f;
         Map.currentTile.AddStorey(bottom);
         Map.currentTile.isTaken = true;
@@ -61,8 +61,8 @@ public class BuildingLogic : MonoBehaviour
         {
             var mid = Instantiate(building.mid, Map.currentTile.transform);
 
-            mid.transform.eulerAngles = Vector3.left * 90;
-            mid.transform.localScale = Vector3.one * .4f;
+            //mid.transform.eulerAngles = Vector3.left * 90;
+            //mid.transform.localScale = Vector3.one * .4f;
             mid.transform.position = Grapnel.Tip.position;
 
             grapnel.position += Vector3.up * building.midHeight;
@@ -82,8 +82,8 @@ public class BuildingLogic : MonoBehaviour
         {
             var top = Instantiate(building.top, Map.currentTile.transform);
 
-            top.transform.eulerAngles = Vector3.left * 90;
-            top.transform.localScale = Vector3.one * .4f;
+            //top.transform.eulerAngles = Vector3.left * 90;
+            //top.transform.localScale = Vector3.one * .4f;
             top.transform.position = Map.currentTile.GetLastStorey().position + Vector3.up * .5f;
 
             Map.currentTile.AddStorey(top);
